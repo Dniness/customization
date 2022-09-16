@@ -1,2 +1,0 @@
-# Dniness.github.io
-rules
