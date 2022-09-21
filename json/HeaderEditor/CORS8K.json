@@ -1,0 +1,41 @@
+{
+	"request": [
+		{
+			"name": "js外链8K",
+			"ruleType": "redirect",
+			"isFunction": true,
+			"code": "if(val.includes(\".json?id=\"))\n\treturn val.match(/id=(\\d+)$/).pop()==top.fetchKeyNowId?'_header_editor_cancel_':\n\t\"https://maps.google.cn/generate_204?from=HEG\"+top.fetchKeyNowId;\nelse top.fetchKeyNowId = top.fetchKeyNowId+1||0;\ntop.fetchKeyArr = Array(3).fill('V'+ top.fetchKeyNowId); \nreturn `data:text/javascript,(${(o,d,json)=>{\nconst fetchX = o.fetch;\no.fetchKeyNow =  077700;\no.fetchKeyNowId = d;\no.fetch = async (url,opt='')=>{\n\t\tlet cup = fetchX(json+'?id='+o.fetchKeyNowId)\n\t\t\t.catch(e=>1&&{url:\"x=HEG\"+o.fetchKeyNowId});\n\t\tcup = (await cup).url.match(/=HEG(\\d+)$/).pop();\n\t\tif(cup!=o.fetchKeyNowId){\n\t\t\to.fetch = fetchX;\n\t\t\tconsole.table({\n\t\t\t\t\terror:'Single Fetch is disconnect',\n\t\t\t\t\tself:o.fetchKeyNowId,\n\t\t\t\t\tnow:cup-0});\n\t\t\treturn fetchX(url,opt||opt.o);\n\t\t}\n\t\tif(!opt.headers||url.startsWith(location.origin))\n\t\t\treturn fetchX(url,opt||opt.o);\n\t\turl = url.match(/([^?]+)\\??(.*)$/);\n\t\tcup = Object.entries(opt.headers||'');\n\t\topt.headers =  {Accept:'CORS-'};\n\t\tcup.push(url.slice(2))&&(url=url[1]+'?');\n\t\tcup.forEach((a,i)=>{cup[i]=btoa(a.join(':'))});\n \t\tcup.unshift(opt.headers.Accept+=(fetchKeyNow-=\n \t\t \tfetchKeyNow&077777?~0:077707).toString(36));\n\t\treturn fetchX(url+=cup.join('&'),opt);\n\t};\n}})(${(val.match(/\\?(.+)/)||['this']).pop()\n},${top.fetchKeyNowId},'${val.replace(/^([^?]+)(.*)$/,\"$1on\")}')`;",
+			"matchType": "prefix",
+			"pattern": "https://0.0.0.0/fetch2.js",
+			"group": "CORS8K"
+		},
+		{
+			"name": "绕过预检8K",
+			"ruleType": "redirect",
+			"isFunction": true,
+			"code": "let S = top.fetchKeyArr;\nval=val.match(/^([^?]+\\?)(CORS-\\w+)&(.*)/);\nif(!val) return null;\nconst Z = S[val[2]] = [];\nif(!val[2].startsWith(S[0])){\n\tZ.push((val.S=S).pop());\n\ttop.fetchKeyArr=S=[];\n\tfor(let k in val.S){\n\t\t!k.startsWith(Z[0])&&(S[k]=val.S[k]);\n\t}\n\tval.S = Z.pop();\n\tval[0]=S.unshift(val[2].slice(0,-1));\n}\n\nval[3].split('&').forEach(a=>Z.push(atob(a)));\nZ.unshift(\"referer:\"+val[1]+'id=');\nval = val[1]+Z.pop();\nreturn val;",
+			"matchType": "all",
+			"group": "CORS8K"
+		}
+	],
+	"sendHeader": [
+		{
+			"name": "请求植入8K",
+			"ruleType": "modifySendHeader",
+			"isFunction": true,
+			"code": "val.forEach((e,a)=>{\n\tif(e.name.toLowerCase() === 'accept'){\n\t\ta=top.fetchKeyArr[e.value];\n\t\tif(!a) return;\n\t\ta.forEach(e=>{a = e.indexOf(':');\n\t\ta={\"name\": e.slice(0,a), \"value\": e.slice(1+a)};\n\t\tval.push(a);})\n\t\te.value =' */*; q=0.01';\n\t}else\n\te.name.toLowerCase() === 'origin'?(e.name = \"H-Referer-Origin\"):\n\te.name.toLowerCase() === 'referer'?(e.name = \"from\",\n\t\te.value=e.value.replace(/[^/]+..([^.]+)\\.?([^/]+).*/,'$1@$2')):0\n});",
+			"matchType": "all",
+			"group": "CORS8K"
+		}
+	],
+	"receiveHeader": [
+		{
+			"name": "跨域访问许可8K",
+			"ruleType": "modifyReceiveHeader",
+			"isFunction": true,
+			"code": "const H={name:\"H-Referer-Origin\"};\ndetail.originUrl&&((S = new Set())=>{ top[H.name]  = S ; H.value = \nS.has(detail.id)?'null':detail.originUrl.split('/').slice(0,3).join('/');\nS[(detail.statusCode&0740)===0440?'add':'delete'](detail.id);\n})(top[H.name] );\ndetail.url.includes(\"/generate_204?from=HEG\")&&\n(detail.requestHeaders=null,H.value=\"null\")&&\nval.push({\"name\": \"Cache-Control\", \"value\":\"max-age=\"+7e7});\n(detail.Referer= (detail.requestHeaders||[H]).find(e=>e.name==H.name))&&\n!val.forEach(e=>e.name.toLowerCase()===\"location\"?e.value[4]==':'&&\n(e.value = detail.url.split(':')[0]+e.value.slice(4)):\n(e.name.toLowerCase().startsWith(\"access-control-allow-\")&&e).name+=\"-X\")&&\nval.push({\"name\": \"Access-Control-Allow-Origin\", \"value\":\ndetail.url.includes(\"/generate_204?from=HEG\")?\"null\":detail.Referer.value})&&\nval.push({\"name\": \"Access-Control-Allow-Credentials\", \"value\": \"true\"})&&\nval.push({\"name\": \"Access-Control-Allow-Methods\", \"value\": \"POST,GET\"}); ",
+			"matchType": "all",
+			"group": "CORS8K"
+		}
+	]
+}
