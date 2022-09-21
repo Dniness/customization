@@ -4,7 +4,7 @@
 - GitHub: https://github.com/FirefoxBar/HeaderEditor
 
 ### 包含:
-- [x] 跨域1.0
+- [x] 跨域1.0：短headers复杂跨域(多页面)
  - 简单跨域：导入即可使用，可多个标签页同时简单跨域。
  - 复杂跨域：引入"https://0.0.0.0/fetch.js?" ，可实现fetch跨域。
  - 注意：多页面可同时复杂跨域，但headers对象存在长度限制(约128)。
