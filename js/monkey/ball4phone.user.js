@@ -48,6 +48,6 @@
     }).forEach(e=>pwd.setAttribute('on'+e[0],e[1]));
     window != top || document.body.appendChild(pwd).onblur();
     pwd.Run=c=>c[c.value[1]?'asyncRun':'jumpTop'];//jumpTop = key(back)
-    pwd.jumpTop=a=>{(a=a.style).bottom=(8+a.bottom).slice(~4-~a.bottom[1])};
+    pwd.jumpTop=a=>{(a=a.style).bottom=(8+a.bottom).slice(~3-~a.bottom[1])};
     pwd.asyncRun=e=>pwd[e.value[2]||'Enter'](document.body);
 })(document.createElement("input"));
