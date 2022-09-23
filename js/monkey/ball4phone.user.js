@@ -2,7 +2,7 @@
 // @name         ball4phone
 // @namespace    https://dniness.github.io/
 // @name:zh-CN   红裤衩の悬浮球
-// @version      0.7
+// @version      0.8
 // @description  一个用于手机浏览器<自定义函数>的悬浮球
 // @author       Dniness
 // @match        *://*/*
