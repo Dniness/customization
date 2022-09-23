@@ -46,7 +46,7 @@
         keyup:"this.Run(this)(this),this.blur()",
         keydown:"this.value=1-this.value",
     }).forEach(e=>pwd.setAttribute('on'+e[0],e[1]));
-    document.body.appendChild(pwd).onblur();
+    window != top || document.body.appendChild(pwd).onblur();
     pwd.Run=c=>c[c.value[1]?'asyncRun':'jumpTop'];//jumpTop = key(back)
     pwd.jumpTop=a=>{(a=a.style).top=(8+a.top).slice(~9-~a.top[1])};
     pwd.asyncRun=e=>pwd[e.value[2]||'Enter'](document.body);
