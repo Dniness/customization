@@ -3,7 +3,7 @@
 // @name         ball4phone
 // @namespace    https://dniness.github.io/
 // @name:zh-CN   红裤衩の悬浮球
-// @version      1.2
+// @version      1.3
 // @description  一个用于手机浏览器<自定义函数>的悬浮球
 // @author       Dniness
 // @match        *://*/*
@@ -48,7 +48,7 @@
         keydown:$=>{$.value=1-$.value},
         contextmenu:$=>{return !$.forward($)}
     }).forEach(e=>{pwd['on'+e[0]]=// eslint-disable-next-line
-     eval('(function()'+(e.pop()+')').slice(3).replace(/$/g,'this'))});
+     eval('(function()'+(e.pop()+')').slice(3).replace(/\$/g,'this'))});
     window != top || document.body.appendChild(pwd).onblur();
     pwd.Run=c=>c[c.value[1]?'asyncRun':'jumpTop'];//jumpTop = key(back)
     pwd.jumpTop=a=>{(a=a.style).bottom=(8+a.bottom).slice(~3-~a.bottom[1])};
