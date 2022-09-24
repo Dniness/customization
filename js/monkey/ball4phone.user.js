@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 // ==UserScript==
 // @name         ball4phone
 // @namespace    https://dniness.github.io/
@@ -41,12 +42,13 @@
         font:'bold 3vh SANS-SERIF'
     }).map(e=>e[0].replace('$','-')+':'+e[1]).join(';');
     Object.entries({
-        focus:$=>{this.type='password';this.value=~8},
-        blur:$=>{this.type='text';this.value='Ctrl'},
-        keyup:$=>{this.Run(this)(this);this.blur()},
-        keydown:$=>{this.value=1-this.value},
-        contextmenu:$=>{return !this.forward(this)}
-    }).forEach(e=>{pwd['on'+e[0]]=eval('(function()'+(e.pop()+')').slice(3))});
+        focus:$=>{$.type='password';$.value=~8},
+        blur:$=>{$.type='text';$.value='Ctrl'},
+        keyup:$=>{$.Run($)($);$.blur()},
+        keydown:$=>{$.value=1-$.value},
+        contextmenu:$=>{return !$.forward($)}
+    }).forEach(e=>{pwd['on'+e[0]]=// eslint-disable-next-line
+     eval('(function()'+(e.pop()+')').slice(3).replace(/$/g,'this'))});
     window != top || document.body.appendChild(pwd).onblur();
     pwd.Run=c=>c[c.value[1]?'asyncRun':'jumpTop'];//jumpTop = key(back)
     pwd.jumpTop=a=>{(a=a.style).bottom=(8+a.bottom).slice(~3-~a.bottom[1])};
