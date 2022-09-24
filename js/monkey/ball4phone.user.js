@@ -41,12 +41,12 @@
         font:'bold 3vh SANS-SERIF'
     }).map(e=>e[0].replace('$','-')+':'+e[1]).join(';');
     Object.entries({
-        focus:"this.type='password',this.value=~8",
-        blur:"this.type='text',this.value='Ctrl'",
-        keyup:"this.Run(this)(this),this.blur()",
-        keydown:"this.value=1-this.value",
-        contextmenu:"return !this.forward(this)"
-    }).forEach(e=>{pwd['on'+e[0]]=eval(`(function(){${e[1]}})`)});
+        focus:$=>{this.type='password';this.value=~8},
+        blur:$=>{this.type='text';this.value='Ctrl'},
+        keyup:$=>{this.Run(this)(this);this.blur()},
+        keydown:$=>{this.value=1-this.value},
+        contextmenu:$=>{return !this.forward(this)}
+    }).forEach(e=>{pwd['on'+e[0]]=eval('(function()'+(e.pop()+')').slice(3))});
     window != top || document.body.appendChild(pwd).onblur();
     pwd.Run=c=>c[c.value[1]?'asyncRun':'jumpTop'];//jumpTop = key(back)
     pwd.jumpTop=a=>{(a=a.style).bottom=(8+a.bottom).slice(~3-~a.bottom[1])};
