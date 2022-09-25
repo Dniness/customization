@@ -1,9 +1,9 @@
 // eslint-disable-next-line
 // ==UserScript==
-// @name         ball4phone2
+// @name         ball4phone
 // @namespace    https://dniness.github.io/
-// @name:zh-CN   红裤衩の悬浮球233
-// @version      1.3
+// @name:zh-CN   红裤衩の悬浮球
+// @version      1.5
 // @description  一个用于手机浏览器<自定义函数>的悬浮球
 // @author       Dniness
 // @match        *://*/*
