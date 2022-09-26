@@ -74,7 +74,7 @@
             e=document.elementFromPoint(e.clientX,e.clientY);
             if(e.tagName=='IFRAME'&&e.src){
                 this.Run(null);
-                location.href=e.src;
+                location.replace(e.src);
             }else{
                 this.Run(this.previousSibling);
                 this.active=e;
