@@ -26,14 +26,17 @@
         // OR,you could set Dniness.ball while document-start
         `}
         //your code here end
+        ready(){
+        location.origin.startsWith('https://m.')&&
+        (document.body.style.zoom=2.25)};
     },(window.Dniness||'').ball);
-    pwd.Run={
+    (pwd.Run={
         _($){
-            $=($||0).nextElementSibling==this?false:$==this?this:
+            $=($||0).nextSibling==this?false:$==this?this:
             ($&&this.$ball[$]||isFinite)(this.active)||'';
             this.active = undefined;
             this.textContent="\n";
-            this.previousElementSibling.style.display=
+            (this.previousSibling||this).style.display=
                 this.style.display='block';
             if($===''){
                 this.style.display='none';
@@ -41,7 +44,7 @@
                 this.style.opacity=1/11;
             }else if($===this){
                 this.style.opacity=0.2;
-                this.previousElementSibling.style.display='none';
+                this.previousSibling.style.display='none';
             }else{
                 this.style.opacity=1;
                 this.innerText+=$;
@@ -50,15 +53,15 @@
         on:e=>{pwd['on'+e[0]]=// eslint-disable-next-line
             eval('(function()'+(e.pop()+')').slice(3).replace(/\$/g,'this'))},
         $:e=>e[0].replace('$','-')+':'+e[1],
-    }
+    })._('ready');
     pwd.onmouseup = function(e){
         if(this.style.opacity==0.2){
             this.Run(this);
             this.style.display='none';
             e=document.elementFromPoint(e.clientX,e.clientY);
-            this.Run(this.previousElementSibling);
+            this.Run(this.previousSibling);
             this.active=e;
-            this.previousElementSibling.focus();
+            this.previousSibling.focus();
         }else this.Run(null);
     };
     pwd.style=Object.entries({
@@ -87,7 +90,7 @@
     //main ball
     pwd = document.body.appendChild(pwd).parentElement
         .insertBefore(document.createElement("input"),pwd);
-    pwd.Run = pwd.nextElementSibling.Run;
+    pwd.Run = pwd.nextSibling.Run;
     pwd.style=Object.entries({
         bottom:'5%',
         right:'2%',
@@ -112,12 +115,12 @@
         keydown:$=>{$.value=1-$.value},
         mousedown:$=>{clearTimeout($.rto);$.asyncRun($.rto=0,$);},
         touchend:$=>{$.rto=$.rto||setTimeout($.forward,500,$)},
-        contextmenu:$=>{$.asyncRun($,$.nextElementSibling);return false}
+        contextmenu:$=>{$.asyncRun($,$.nextSibling);return false}
     }).forEach(pwd.Run.on);
-    pwd.nextElementSibling.Run=pwd.Run._;
+    pwd.nextSibling.Run=pwd.Run._;
     pwd.Run=c=>c[c.value[1]?'asyncRun':'jumpTop'];//jumpTop = key(back)
     pwd.jumpTop=a=>{(a=a.style).bottom=(8+a.bottom).slice(~3-~a.bottom[1])};
-    pwd.asyncRun=(e,x)=>(e||x).nextElementSibling.Run(x||e.value[2]||'Enter');
+    pwd.asyncRun=(e,x)=>(e||x).nextSibling.Run(x||e.value[2]||'Enter');
     pwd.forward=o=>{o.blur();history.forward();o.rto=0};
     pwd=!pwd.onblur();
 })(window!=top?null:document.createElement("div"));
