@@ -26,11 +26,11 @@
         ' '(){return `blank space
 
         // OR,you could set Dniness.ball while document-start
-        `}
+        `},
         //your code here end
         ready(){
         location.origin.startsWith('https://m.')&&
-        (document.body.style.zoom=2.25)};
+        (document.body.style.zoom=2.25)},
     },(window.Dniness||'').ball);
     (pwd.Run={
         _($){
