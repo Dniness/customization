@@ -20,11 +20,11 @@
     'use strict';
     Object.assign(pwd.$ball={
         // Your code here...
-        Enter(e){return e&&e.textContent},
+        Enter(){return this&&this.textContent},
         a(){alert('a')},
         A(){alert('a+shift')},
-        $(){this.test.error},
-        z(){t&&t.parentElement.appendChild(t)},
+        $(){this.x$test.error},
+        z(){this&&this.parentElement.appendChild(this)},
         ' '(){return `blank space
 
         // OR,you could set Dniness.ball while document-start
@@ -43,7 +43,7 @@
         _($){
             try{
                 $=($||0).nextSibling==this?false:$==this?this:
-                ($&&this.$ball[$]||isFinite)(this.active)||'';
+                ($&&this.$ball[$]||isFinite).call(this.active)||'';
             }catch(e){
                 $='[ERROR]:\r\r'+(e.message||e);
             }
