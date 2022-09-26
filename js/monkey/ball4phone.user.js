@@ -55,7 +55,7 @@
         on:e=>{pwd['on'+e[0]]=// eslint-disable-next-line
             eval('(function()'+(e.pop()+')').slice(3).replace(/\$/g,'this'))},
         $:e=>e[0].replace('$','-')+':'+e[1],
-    })._.call('ready',pwd);
+    })._.call(pwd,'ready');
     pwd.onmouseup = function(e){
         if(this.style.opacity==0.2){
             this.Run(this);
