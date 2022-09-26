@@ -23,6 +23,7 @@
         Enter(e){return e&&e.textContent.replace(/[\r\n]+/g,"\n")},
         a(){alert('a')},
         A(){alert('a+')},
+        $(){test.error},
         ' '(){return `blank space
 
         // OR,you could set Dniness.ball while document-start
@@ -34,8 +35,12 @@
     },(window.Dniness||'').ball);
     (pwd.Run={
         _($){
+            try{
             $=($||0).nextSibling==this?false:$==this?this:
             ($&&this.$ball[$]||isFinite)(this.active)||'';
+            }catch(e){
+             $=e.message;
+            }
             this.active = undefined;
             this.textContent="\n";
             (this.previousSibling||this).style.display=
