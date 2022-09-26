@@ -20,7 +20,7 @@
     'use strict';
     Object.assign(pwd.$ball={
         // Your code here...
-        Enter(e){return e&&e.textContent.replace(/[\r\n]+/g,"\n")},
+        Enter(e){return e&&e.textContent},
         a(){alert('a')},
         A(){alert('a+')},
         $(){this.test.error},
