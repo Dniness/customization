@@ -43,7 +43,7 @@
         _($){
             try{
                 $=($||0).nextSibling==this?false:$==this?this:
-                ($&&this.$ball[$]||isFinite).call(this.active)||'';
+                ($&&this.$ball[$]||encodeURI).call(this.active);
             }catch(e){
                 $='[ERROR]:\r\r'+(e.message||e);
             }
@@ -51,7 +51,7 @@
             this.textContent="\n";
             (this.previousSibling||this).style.display=
                 this.style.display='block';
-            if($===''){
+            if($===undefined){
                 this.focus();
                 this.style.display='none';
             }else if($===false){
@@ -61,7 +61,8 @@
                 this.previousSibling.style.display='none';
             }else{
                 this.style.opacity=1;
-                this.innerText+=$.toString().replace(/[\r\n]+/g,"\n");
+                this.innerText+="don't use back key:\n\n"+
+                    $.toString().replace(/[\r\n]+/g,"\n");
             }
         },
         on:e=>{pwd['on'+e[0]]=// eslint-disable-next-line
