@@ -3,14 +3,16 @@
 // @name         ball4phone
 // @namespace    https://dniness.github.io/
 // @name:zh-CN   红裤衩の悬浮球
-// @version      1.8
-// @description  一个用于手机浏览器<自定义函数>的悬浮球\n点击:选择并运行自定义js函数\n拖拽:forward前进\n长按:选中页面dom并进行处理后回显
+// @version      1.9
+// @description  一个用于手机浏览器<自定义函数>的悬浮球。💚点击:选择并运行自定义js函数。💙拖拽:forward前进。💜长按:选中页面dom并进行处理后回显
 // @author       Dniness
 // @match        *://*/*
 // @icon         data:image/svg+xml,<svg width='64' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='32' cy='32' r='32' fill='darkslateblue'/></svg>
 // @grant        none
 // @run-at       document-body
 // @license      MPL2.0
+// @compatible   Yandex for Android , etc
+// @incompatible All Browser without Touch
 // ==/UserScript==
 // jshint esversion: 6
 
