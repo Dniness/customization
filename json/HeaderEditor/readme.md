@@ -19,5 +19,5 @@
 
 - [x] object批量导入Headers",
  - top.setHeaders(val,{a:"text1",b:null,c:"test2"})。
- - 值为null或false或0，移除该头。
+ - 头对应的值为null或false或0时，移除该头。
  - 导入URL：https://dniness.github.io/json/HeaderEditor/top_setHeaders.json
