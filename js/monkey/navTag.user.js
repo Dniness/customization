@@ -1,5 +1,3 @@
-
-
 // eslint-disable-next-line
 // ==UserScript==
 // @name         ChangeNavReadOnly
