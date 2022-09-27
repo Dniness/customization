@@ -15,3 +15,9 @@
  - 复杂跨域：引入"https://0.0.0.0/fetch2.js" ，可实现fetch跨域。
  - 注意：headers对象长度解除限制，但仅支持最后1个标签页处于复杂跨域状态。
  - 导入URL：https://dniness.github.io/json/HeaderEditor/CORS8K.json
+
+
+- [x] object批量导入Headers",
+ - top.setHeaders(val,{a:"text1",b:null,c:"test2"})。
+ - 值为null或false或0，移除该头。
+ - 导入URL：https://dniness.github.io/json/HeaderEditor/top_setHeaders.json
