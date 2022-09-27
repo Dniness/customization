@@ -1,0 +1,13 @@
+{
+	"request": [
+		{
+			"enable": true,
+			"name": "object批量导入",
+			"ruleType": "cancel",
+			"matchType": "all",
+			"group": "引导函数",
+			"isFunction": true,
+			"code": "this.enable = this.enable&&\n!(top.setHeaders = (v,obj)=>{\nv.forEach(({name,value},i)=>{v[i]=[name,value]});\nv.push.apply(v,Object.entries(obj));\n(obj={},v).forEach(e=>obj[e[0].toUpperCase()]=e);\nobj=(v.length=0,Object.values(obj)).forEach(\n\t([name,value])=>value&&v.push({name,value}));\n});console.log('top.setHeaders is installed')"
+		}
+	]
+}
