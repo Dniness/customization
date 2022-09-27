@@ -3,7 +3,7 @@
 // @name         ball4phone
 // @namespace    https://dniness.github.io/
 // @name:zh-CN   红裤衩の悬浮球
-// @version      2.07
+// @version      2.08
 // @description  一个用于手机浏览器<自定义函数>的悬浮球。💚点击:选择并运行自定义js函数。💙拖拽:forward前进。💜长按:选中页面dom并进行处理后回显
 // @author       Dniness
 // @match        *://*/*
@@ -11,8 +11,7 @@
 // @grant        none
 // @run-at       document-body
 // @license      MPL2.0
-// @compatible   Yandex for Android , etc
-// @incompatible All Browser without Touch
+// @noframes
 // ==/UserScript==
 // jshint esversion: 6
 
@@ -145,4 +144,4 @@
     pwd.asyncRun=(e,x)=>(e||x).nextSibling.Run(x||e.value[2]||'Enter');
     pwd.forward=o=>{o.blur();history.forward();o.rto=0};
     pwd=!pwd.onblur();
-})(window!=top?null:document.createElement("div"));
+})(document.createElement("div"));
