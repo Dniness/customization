@@ -3,7 +3,7 @@
 // @name         ball4phone
 // @namespace    https://dniness.github.io/
 // @name:zh-CN   红裤衩の悬浮球
-// @version      2.09
+// @version      2.10
 // @description  一个用于手机浏览器<自定义函数>的悬浮球。💚点击:选择并运行自定义js函数。💙拖拽:forward前进。💜长按:选中页面dom并进行处理后回显
 // @author       Dniness
 // @match        *://*/*
@@ -24,6 +24,7 @@
         A(){alert('a+shift')},
         $(){this.x$test.error},
         z(){this&&this.appendChild(this.firstElementChild)},
+        w(x){return x.pop()&&'<a href="//Dniness.github.io">a link test</a>'},
         ' '(){return `blank space
 
         // OR,you could set Dniness.ball while document-start
@@ -39,29 +40,31 @@
         ($||'').Dniness$ball&&$.Run(null);
     },pwd.Dniness$ball=true);
     !(pwd.Run={
-        _($){
+        _($,$_){
             try{
-                $=($||0).nextSibling==this?false:$==this?this:
-                ($&&this.$ball[$]||this.$p).call(this.active);
+                $=($||0).nextSibling==this?null:$==this?this:
+                ($&&this.$ball[$]||this.$p).call(this.active,$_=[this.style]);
             }catch(e){
                 $='[ERROR]:\r\r'+(e.message||e);
             }
             this.active = undefined;
             this.textContent="\n";
+            this.style.opacity=1;
             (this.previousSibling||this).style.display=
                 this.style.display='block';
+            $_=$_.length?"innerText":"innerHTML";
             if($===undefined){
                 this.focus();
                 this.style.display='none';
-            }else if($===false){
+            }else if($===null){
                 this.style.opacity=1/11;
             }else if($===this){
                 this.style.opacity=0.2;
                 this.previousSibling.style.display='none';
             }else{
-                this.style.opacity=1;
-                this.innerText+="don't use back key:\n\n"+
+                this[$_]+="don't use back key:\n\n"+
                     $.toString().replace(/[\r\n]+/g,"\n");
+                ($_=this.style).opacity=$_.opacity<0.3?0.3:$_.opacity;
             }
         },
         on:e=>{pwd['on'+e[0]]=new Function((e.pop()+'').slice(4,-1).replace(/\$/g,'this'))},
