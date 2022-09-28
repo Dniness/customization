@@ -41,7 +41,7 @@
     },pwd.Dniness$ball=true);
     !(pwd.Run={
         _($,$_){
-            try{
+            try{$_='$';
                 $=($||0).nextSibling==this?null:$==this?this:
                 ($&&this.$ball[$]||this.$p).call(this.active,$_=[this.style]);
             }catch(e){
