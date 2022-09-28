@@ -3,7 +3,7 @@
 // @name         ball4phone
 // @namespace    https://dniness.github.io/
 // @name:zh-CN   红裤衩の悬浮球
-// @version      2.16
+// @version      2.17
 // @description  一个用于手机浏览器<自定义函数>的悬浮球。💚点击:选择并运行自定义js函数。💙拖拽:forward前进。💜长按:选中页面dom并进行处理后回显
 // @author       Dniness
 // @match        *://*/*
@@ -42,7 +42,7 @@
     !(pwd.Run={
         _($,$_){
             this.style = this.defaultStyle;
-            this.style.opacity=1;
+            //this.style.opacity=1;
             try{
                 $=($||0).nextSibling==this?null:$==this?this:
                 ($&&this.$ball[$]||this.$p).call(this.active,$_=[this.style]);
@@ -107,7 +107,8 @@
         color:'white',
         caret$color:'transparent',
         position:'Fixed',
-        z$index:9<<9
+        z$index:9<<9,
+        opacity:1
     }).map(pwd.Run.$).join(';');
 
     //main ball
