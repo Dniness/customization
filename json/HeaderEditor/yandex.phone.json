@@ -21,6 +21,18 @@
 			"isFunction": true,
 			"action": "redirect",
 			"code": "return ({\nstore:'http://chrome.google.com/webstore/category/extensions?hl=zh-CN#chrome://extensions/'\n\n})[val.split('/').pop()];"
+		},
+		{
+			"enable": true,
+			"name": "ChromeStore",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "https://www.google.com/search\\?q=([^&]+)(&.+)&tbm=shop(&.+)?",
+			"exclude": "",
+			"group": "yandex",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://chrome.google.com/webstore/search/$1?_category=extensions"
 		}
 	],
 	"sendHeader": [
