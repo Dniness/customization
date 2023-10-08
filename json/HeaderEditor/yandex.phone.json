@@ -12,7 +12,6 @@
 			"to": "https://m.baidu.com/s?word$2"
 		},
 		{
-			"enable": true,
 			"name": "g.cn/booklist",
 			"ruleType": "redirect",
 			"matchType": "prefix",
